@@ -2,41 +2,43 @@
 <html lang="en" >
 <head>
   <meta charset="UTF-8">
-  <title>Odin Project Etch-A-Sketch</title>
+  <title>Calculator Odin</title>
   <link rel="stylesheet" href="./style.css">
-
+  <script  src="./script.js" defer></script>
 </head>
 <body>
   <div class="body">
-    <div class="display">
+    <div class="row0">
+      <div class="outputDisplay" id="outDis"></div>
+      <div class="inputDisplay" id="inDis"></div>
     </div>
     <div class="row1">
-      <button class="clrBtn">CLEAR</button>
-      <button class="dltBtn">DELETE</button>
+      <button class="clrBtn" id="clrBtn-id">CLEAR</button>
+      <button class="dltBtn" id="dltBtn-id">DELETE</button>
     </div>
     <div class="row2">
       <button class="normalBtn">7</button>
       <button class="normalBtn">8</button>
       <button class="normalBtn">9</button>
-      <button class="normalBtn">÷</button>
+      <button class="fncBtn">÷</button>
     </div>
     <div class="row3">
       <button class="normalBtn">4</button>
       <button class="normalBtn">5</button>
       <button class="normalBtn">6</button>
-      <button class="normalBtn">x</button>
+      <button class="fncBtn">x</button>
     </div>
     <div class="row4">
       <button class="normalBtn">1</button>
       <button class="normalBtn">2</button>
       <button class="normalBtn">3</button>
-      <button class="normalBtn">-</button>
+      <button class="fncBtn">-</button>
     </div>
     <div class="row5">
-      <button class="normalBtn">.</button>
+      <button class="decBtn" id="decBtn-id">.</button>
       <button class="normalBtn">0</button>
-      <button class="normalBtn">=</button>
-      <button class="normalBtn">+</button>
+      <button class="equalBtn" id="equalBtn-id">=</button>
+      <button class="fncBtn">+</button>
     </div>
   </div>
 </body>

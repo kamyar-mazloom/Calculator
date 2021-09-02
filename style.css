@@ -12,11 +12,33 @@
   margin-right: auto;
   margin-top: 80px;
 }
-.display{
+.row0{
   height: 150px;
   width: 360px;
-  border: 3 px solid red;
-  background-color: white;
+  background-color: rgb(255, 255, 255);
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  border: 3px solid rgb(0, 0, 0);
+  border-radius: 10px;
+}
+.outputDisplay{
+ background-color: rgb(255, 255, 255);
+  /* direction: rtl; */
+  font-size: 50px;
+  width: 340px;
+  height: 100px;
+  border-radius: 20px;
+}
+.inputDisplay{
+  background-color: rgb(255, 255, 255);
+  /* direction: rtl; */
+  font-size: 30px;
+  width: 340px;
+  height: 50px;
+  border-radius: 20px;
 }
 .row1{
   height: 70px;
@@ -72,11 +94,29 @@
   border: 2px solid black;
   border-radius: 5px;
 }
+.fncBtn{
+  width: 60px;
+  height: 60px;
+  font-size: 54px;
+  text-align: center;
+  padding: 0px;
+  border: 2px solid black;
+  border-radius: 5px;
+}
+.decBtn{
+  width: 60px;
+  height: 60px;
+  font-size: 54px;
+  text-align: center;
+  padding: 0px;
+  border: 2px solid black;
+  border-radius: 5px;
+}
 .clrBtn{
   background-color: rgb(248, 153, 153);
   width: 160px;
   height: 60px;
-  font-size: 40px;
+  font-size: 35px;
   text-align: center;
   padding: 0px;
   border: 2px solid black;
@@ -86,7 +126,16 @@
   background-color: rgb(156, 187, 245);
   width: 160px;
   height: 60px;
-  font-size: 40px;
+  font-size: 35px;
+  text-align: center;
+  padding: 0px;
+  border: 2px solid black;
+  border-radius: 5px;
+}
+.equalBtn{
+  width: 60px;
+  height: 60px;
+  font-size: 54px;
   text-align: center;
   padding: 0px;
   border: 2px solid black;

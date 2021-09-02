@@ -1,31 +1,72 @@
-var size = 16;
-var gridSize = 20;
+//variables
+let var1 = "";
+let fnc = "";
+let var2 = "";
 
-$(document).ready(function() {
-  makeGrid();
-  $(".button").click(function() {
-    $('div').removeClass("active");
-    size = prompt("Choose the size of your new square. Max 100");
-    if (size > 100) {size = 100};
-    gridSize = 320/size;
-    makeNew();
-  });
-});
+// 4 basic functions
+function operator (var1,fnc,var2){ 
+  if (fnc=="+") {return Math.round((parseFloat(var1) + parseFloat(var2))*10000000)/10000000}
+  else if (fnc=="-") {return Math.round((var1 - var2)*10000000)/10000000}
+  else if (fnc=="x") {return Math.round((var1 * var2)*10000000)/10000000}
+  else if (fnc=="÷") {return Math.round((var1 / var2)*10000000)/10000000}
+  else {return var1}
+}
 
-function makeGrid() {
-  for (i=1;i<=size*size;i++) {
-    $(".container").append("<div class='grid'></div>");
-  };
-  $(".container").width(size*gridSize + "px");
-  $(".grid").width(gridSize + "px");
-  $(".grid").height(gridSize + "px");
-};
+// Clear function
+document.getElementById('clrBtn-id').onclick = function() {
+  var1 ="";
+  fnc ="";
+  var2 ="";
+  document.getElementById('inDis').innerHTML = "";
+  document.getElementById('outDis').innerHTML = operator(var1,fnc,var2);
+}
 
-function makeNew() {
-  $(".container").empty();
-  makeGrid();
-};
+//Equal function 
+document.getElementById('equalBtn-id').onclick = function() {
+  if (var2=="") {
+    document.getElementById('outDis').innerHTML = var1;  
+  }
+  else {
+    document.getElementById('outDis').innerHTML = operator(var1,fnc,var2);
+  }
+}
 
-$(document).on("mouseenter", ".grid", function() {
-  $(this).addClass("active");
-});
+// add to variables 
+let numButtons = document.getElementsByClassName('normalBtn');
+for (let i=0; i < numButtons.length; i++) {
+  numButtons[i].onclick = function(){
+    if (fnc=="") {
+       var1 = var1 + this.innerHTML;
+       document.getElementById('inDis').innerHTML = var1 + fnc + var2;
+    }
+    else {
+       var2 = var2 + this.innerHTML;
+       document.getElementById('inDis').innerHTML = var1 + fnc + var2;
+    }
+  }
+}
+
+// choose function 
+let fncButtons = document.getElementsByClassName('fncBtn');
+for (let i=0; i < fncButtons.length; i++) {
+  fncButtons[i].onclick = function(){
+    if (var2=="") {
+      fnc = this.innerHTML;
+      document.getElementById('inDis').innerHTML = var1 + fnc + var2;
+    }
+    else {
+      document.getElementById('outDis').innerHTML = operator(var1,fnc,var2);
+      var1 = operator(var1,fnc,var2);
+      fnc = this.innerHTML;
+      var2 ="";
+      document.getElementById('inDis').innerHTML = var1 + fnc + var2;
+
+    }
+  }
+}
+
+//turn big number into scientific numbers 
+
+if (var1.length > 10) {
+  document.getElementById('inDis').innerHTML = var1.toExponential() + fnc + var2;
+}
