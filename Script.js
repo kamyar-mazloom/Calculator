@@ -21,6 +21,42 @@ document.getElementById('clrBtn-id').onclick = function() {
   document.getElementById('outDis').innerHTML = operator(var1,fnc,var2);
 }
 
+//delete function 
+document.getElementById('dltBtn-id').onclick = function() {
+  if (fnc=="") {
+    var1 = var1.slice(0,-1)
+    document.getElementById('inDis').innerHTML = var1 + fnc + var2;
+  }
+  else if(var2=="") {
+    fnc=""
+    document.getElementById('inDis').innerHTML = var1 + fnc + var2;
+  }
+  else{
+    var2 = var2.slice(0,-1)
+    document.getElementById('inDis').innerHTML = var1 + fnc + var2;
+  }
+}
+
+//decimal function 
+document.getElementById("decBtn-id").onclick = function () {
+  if(var1=="") {
+    var1 = var1 + 0 + this.innerHTML;
+    document.getElementById('inDis').innerHTML = var1 + fnc + var2;
+  }
+  else if (fnc=="" && var1.includes(".")==false) {
+    var1 = var1 + this.innerHTML;
+    document.getElementById('inDis').innerHTML = var1 + fnc + var2;
+ }
+ else if (fnc!=="" && var2=="") {
+    var2 = var2 + 0 + this.innerHTML;
+    document.getElementById('inDis').innerHTML = var1 + fnc + var2;
+ }
+ else if (fnc!=="" && var2.includes(".")==false) {
+  var2 = var2 + this.innerHTML;
+  document.getElementById('inDis').innerHTML = var1 + fnc + var2;
+}
+}
+
 //Equal function 
 document.getElementById('equalBtn-id').onclick = function() {
   if (var2=="") {
@@ -63,10 +99,4 @@ for (let i=0; i < fncButtons.length; i++) {
 
     }
   }
-}
-
-//turn big number into scientific numbers 
-
-if (var1.length > 10) {
-  document.getElementById('inDis').innerHTML = var1.toExponential() + fnc + var2;
 }
